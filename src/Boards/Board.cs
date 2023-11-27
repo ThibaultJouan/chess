@@ -1,4 +1,7 @@
 using System;
+using System.Text;
+using System.ComponentModel;
+using Pieces;
 
 class Board
 {
@@ -23,16 +26,26 @@ class Board
 
     public string ShowBoard()
     {
-        string show = "";
+        var show = new StringBuilder("", height*width*2);
+        var part = new StringBuilder("", width*2);
         for(int i = 0; i < height; i++)
         {
             for(int j = 0; j < width; j++)
             {
-                show += this.board[i,j].ToString() + " ";
+                part.Append(this.board[i,j].ToString() + " ");
             }
-            show += System.Environment.NewLine;
+            show.Append(part + System.Environment.NewLine);
+            part = new StringBuilder("", width*2);
         }
 
-        return show;
+        return show.ToString();
+    }
+
+    public void PopulateBoard(List<Piece> pieces)
+    {
+        foreach(Piece p in pieces)
+        {
+            this.board[p.position.x, p.position.y] = p.name[0];
+        }
     }
 }

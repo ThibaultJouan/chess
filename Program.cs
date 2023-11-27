@@ -6,13 +6,8 @@ namespace Chess
     {
         static void Main(string[] args)
         {
-            Board board = new Board(8,8);
-
-            board.InitBoard();
-
-            
-
-            Console.WriteLine(board.ShowBoard());
+            Game game = new Game();
+            game.StartGame();
         }
     }
 }
