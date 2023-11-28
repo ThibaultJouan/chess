@@ -11,4 +11,13 @@ class Tour : Piece
         this.name = name;
         this.position = position;
     }
+
+    override
+    public Position IsValidMove(Position position)
+    {
+        if((this.position.x == position.y && this.position.y != position.y) 
+         ||(this.position.y == position.y && this.position.x != position.x))
+            return position;
+        return new Position(-1, -1);
+    }
 }

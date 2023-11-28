@@ -11,4 +11,11 @@ class Reine : Piece
         this.name = name;
         this.position = position;
     }
+
+
+    override
+    public Position IsValidMove(Position position)
+    {
+        return new Position(-1, -1);
+    }
 }

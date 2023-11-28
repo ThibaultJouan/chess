@@ -7,7 +7,8 @@ class Board
 {
     private int height;
     private int width;
-    private Piece[,] board;
+    public Piece[,] board;
+
     public Board(int height, int width)
     {
         this.height = height;
@@ -20,7 +21,7 @@ class Board
         for(int i = 0; i < height; i++)
             for(int j = 0; j < width; j++)
             {
-                this.board[i,j] = new Case(((i+j)%2) == 0 ? " " : "■", new Position(i,j));
+                this.board[i,j] = new Case(new Position(i,j));
             }
     }
 
@@ -32,7 +33,7 @@ class Board
         {
             for(int j = 0; j < width; j++)
             {
-                part.Append(this.board[i,j].name.ToString() + " ");
+                part.Append(this.board[i,j].name[0].ToString() + " ");
             }
             show.Append(part + System.Environment.NewLine);
             part = new StringBuilder("", width*2);
@@ -45,7 +46,9 @@ class Board
     {
         foreach(Piece p in pieces)
         {
+            this.board[p.position.x, p.position.y] = p;
             this.board[p.position.x, p.position.y].name = p.name[0].ToString();
+            
         }
     }
 }

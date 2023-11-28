@@ -13,6 +13,8 @@ class Roi : Piece
         this.position = position;
     }
 
+
+    override
     public Position IsValidMove(Position target)
     {
         if(Math.Abs(this.position.x - target.x) > 1 || Math.Abs(this.position.y - target.y) > 1)

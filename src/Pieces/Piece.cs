@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 
 namespace Pieces;
-class Piece
+abstract class Piece
 {
     public bool white {get; set;}
     public string name {get; set;}
@@ -20,6 +20,7 @@ class Piece
         this.position = position;
     }
 
+    public abstract Position IsValidMove(Position target);
     //TODO: liste de coups jouables
     //TODO: 'Score' de chaque coup
 }

@@ -5,9 +5,17 @@ class Case : Piece
     public Case()
     {   
     }
-    public Case(string name, Position position)
+    public Case(Position position)
     {   
-        this.name = name;
+        this.name = ((position.x+position.y)%2) != 0 ? " " : "■";
+
         this.position = position;
+    }
+
+
+    override
+    public Position IsValidMove(Position position)
+    {
+        return new Position(-1, -1);
     }
 }

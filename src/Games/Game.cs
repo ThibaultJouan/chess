@@ -30,13 +30,35 @@ class Game
 
         string input = System.Console.ReadLine();
 
-        //TODO: Lire l'input et faire le move
+        Position start = new Position(input.Substring(0,2));
+        Position destination = new Position(input.Substring(2,2));
+
+        Piece toMove = board.board[start.x, start.y];
+        Position test = toMove.IsValidMove(destination);
+        
+        while(test.x == -1)
+        {
+            input = System.Console.ReadLine();
+            start = new Position(input.Substring(0,2));
+            destination = new Position(input.Substring(2,2));
+            toMove = board.board[start.x, start.y];
+            test = toMove.IsValidMove(destination);
+        }
+
+        toMove.position.SetPosition(destination);
+        board.board[start.x, start.y] = new Case(start);
+        board.board[toMove.position.x, toMove.position.y] = toMove;
+        Console.Write(board.ShowBoard());       
+        //Console.Write("{0} {1}", toMove.position.x, toMove.position.y);
+
+        //Console.WriteLine("{0}{1}{2}{3}", start.x, start.y, destination.x, destination.y);
 
 
 
+    }
 
-
-
+    public void PlayTurn()
+    {
 
     }
 

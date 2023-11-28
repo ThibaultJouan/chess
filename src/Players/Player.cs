@@ -13,15 +13,4 @@ class Player
         this.score = 0;
         this.pieces = new List<Piece>();
     }
-
-/*
-    public void InitPieces()
-    {
-        for(int i = 0; i < 8; i++)
-        {
-            pieces.Add(new Piece(white, "Pion", new Position(1, i)));
-            pieces.Add(new Piece(, "Pion", new Position(1, i)));
-        }
-    }
-    */
 }

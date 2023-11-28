@@ -12,69 +12,150 @@ class Position
         this.y = y;
     }
 
+    public Position(string input)
+    {
+        SetPosition(input);
+    }
+
+    public void SetPosition(Position position)
+    {
+        this.x = position.x;
+        this.y = position.y;
+    }
+
     public void SetPosition(string input)
     {
         switch(input[0])
         {
             case 'A':
-                this.x = 0;
+                this.y = 0;
                 break;
             case 'B':
-                this.x = 1;
+                this.y = 1;
                 break;
             case 'C':
-                this.x = 2;
+                this.y = 2;
                 break;
             case 'D':
-                this.x = 3;
+                this.y = 3;
                 break;
             case 'E':
-                this.x = 4;
+                this.y = 4;
                 break;
             case 'F':
-                this.x = 5;
+                this.y = 5;
                 break;
             case 'G':
-                this.x = 6;
+                this.y = 6;
                 break;
             case 'H':
-                this.x = 7;
+                this.y = 7;
                 break;
             default :
-                this.x = -1;
+                this.y = -1;
                 break;
         }
 
         switch(input[1])
         {
-            case '0':
+            case '1':
                 this.x = 0;
                 break;
-            case '1':
+            case '2':
                 this.x = 1;
                 break;
-            case '2':
+            case '3':
                 this.x = 2;
                 break;
-            case '3':
+            case '4':
                 this.x = 3;
                 break;
-            case '4':
+            case '5':
                 this.x = 4;
                 break;
-            case '5':
+            case '6':
                 this.x = 5;
                 break;
-            case '6':
+            case '7':
                 this.x = 6;
                 break;
-            case '7':
+            case '8':
                 this.x = 7;
                 break;
             default :
                 this.x = -1;
                 break;
         }
+    }
+
+    public string GetPosition(Position position)
+    {
+        string outPut = "";
+        switch(position.y)
+        {
+            case 0:
+                outPut += "A";
+                break;
+            case 1:
+                outPut += "B";
+                break;
+            case 2:
+                outPut += "C";
+                break;
+            case 3:
+                outPut += "D";
+                break;
+            case 4:
+                outPut += "E";
+                break;
+            case 5:
+                outPut += "F";
+                break;
+            case 6:
+                outPut += "G";
+                break;
+            case 7:
+                outPut += "H";
+                break;
+            default :
+                outPut = "";
+                break;
+        }
+
+        switch(position.x)
+        {
+            case 0:
+                outPut += "1";
+                break;
+            case 1:
+                outPut += "2";
+                break;
+            case 2:
+                outPut += "3";
+                break;
+            case 3:
+                outPut += "4";
+                break;
+            case 4:
+                outPut += "5";
+                break;
+            case 5:
+                outPut += "6";
+                break;
+            case 6:
+                outPut += "7";
+                break;
+            case 7:
+                outPut += "8";
+                break;
+            default :
+                outPut = "";
+                break;
+        }
+        this.x = position.x;
+        this.y = position.y;
+
+        return outPut;
     }
 
     //TODO: setPosition : A2 => 0:2

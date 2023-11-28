@@ -11,4 +11,16 @@ class Fou : Piece
         this.name = name;
         this.position = position;
     }
+
+
+    override
+    public Position IsValidMove(Position target)
+    {
+        if(Math.Abs(this.position.x - target.x) == Math.Abs(this.position.y - target.y))
+        {
+            return target;
+        }
+
+        return new Position(-1, -1);
+    }
 }
