@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 
 class Position
 {
@@ -158,7 +156,5 @@ class Position
         return outPut;
     }
 
-    //TODO: setPosition : A2 => 0:2
-    //TODO: getPosition : 0:2 => A2
 
 }

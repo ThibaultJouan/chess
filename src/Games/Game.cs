@@ -1,4 +1,3 @@
-using System;
 
 using Pieces;
 
@@ -28,11 +27,15 @@ class Game
         board.PopulateBoard(this.pieces);
         System.Console.Write(board.ShowBoard());
 
+        PlayTurn();
+    }
+
+    public void PlayTurn()
+    {
         string input = System.Console.ReadLine();
 
         Position start = new Position(input.Substring(0,2));
         Position destination = new Position(input.Substring(2,2));
-
         Piece toMove = board.board[start.x, start.y];
         Position test = toMove.IsValidMove(destination);
         
@@ -48,18 +51,7 @@ class Game
         toMove.position.SetPosition(destination);
         board.board[start.x, start.y] = new Case(start);
         board.board[toMove.position.x, toMove.position.y] = toMove;
-        Console.Write(board.ShowBoard());       
-        //Console.Write("{0} {1}", toMove.position.x, toMove.position.y);
-
-        //Console.WriteLine("{0}{1}{2}{3}", start.x, start.y, destination.x, destination.y);
-
-
-
-    }
-
-    public void PlayTurn()
-    {
-
+        Console.Write(board.ShowBoard());      
     }
 
     public void InitPieces()

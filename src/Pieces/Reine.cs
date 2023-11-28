@@ -14,8 +14,12 @@ class Reine : Piece
 
 
     override
-    public Position IsValidMove(Position position)
+    public Position IsValidMove(Position target)
     {
+        if(((this.position.x == target.y && this.position.y != target.y) 
+         ||(this.position.y == target.y && this.position.x != target.x))
+         ||Math.Abs(this.position.x - target.x) == Math.Abs(this.position.y - target.y))
+            return position;
         return new Position(-1, -1);
     }
 }
