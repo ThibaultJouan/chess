@@ -30,7 +30,9 @@ class Game
 
         string input = System.Console.ReadLine();
 
-        
+        //TODO: Lire l'input et faire le move
+
+
 
 
 
