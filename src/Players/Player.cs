@@ -3,7 +3,7 @@ using Pieces;
 
 class Player
 {
-    private bool white {get; set;}
+    public bool white {get; set;}
     private int score {get; set;}
     public List<Piece> pieces;
     public Player(bool white)

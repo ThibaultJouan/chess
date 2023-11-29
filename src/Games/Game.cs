@@ -19,29 +19,33 @@ class Game
 
     public void StartGame()
     {
-        Board board = new Board(8,8);
+        this.board = new Board(8,8);
 
-        board.InitBoard();
+        this.board.InitBoard();
         this.turns++;
         InitPieces();
-        board.PopulateBoard(this.pieces);
-        System.Console.Write(board.ShowBoard());
+        this.board.PopulateBoard(this.pieces);
+        System.Console.Write(this.board.ShowBoard());
 
-        PlayTurn();
+        for(int i = 0; i < 15; i++)
+        {
+            PlayTurn(this.white.white);
+            PlayTurn(this.black.white);
+        }
     }
 
-    public void PlayTurn()
+    public void PlayTurn(bool white)
     {
-        string input = System.Console.ReadLine();
+        string? input = ReadTrueLine();
 
         Position start = new Position(input.Substring(0,2));
         Position destination = new Position(input.Substring(2,2));
         Piece toMove = board.board[start.x, start.y];
         Position test = toMove.IsValidMove(destination);
         
-        while(test.x == -1)
+        while(test.x == -1 || toMove.white != white || board.board[start.x, start.y].white == board.board[destination.x, destination.y].white)
         {
-            input = System.Console.ReadLine();
+            input = ReadTrueLine();
             start = new Position(input.Substring(0,2));
             destination = new Position(input.Substring(2,2));
             toMove = board.board[start.x, start.y];
@@ -54,6 +58,15 @@ class Game
         Console.Write(board.ShowBoard());      
     }
 
+    public string ReadTrueLine()
+    {
+        var input = System.Console.ReadLine();
+        while(input == null || input.Length<4)
+        {
+            input = System.Console.ReadLine();
+        }
+        return input.ToString();
+    }
     public void InitPieces()
     {
         for(int i = 0; i < 8; i++)
@@ -80,10 +93,10 @@ class Game
         black.pieces.Add(new Tour(false, "Tour", new Position(7, 0)));
         black.pieces.Add(new Tour(false, "Tour", new Position(7, 7)));
 
-        black.pieces.Add(new Reine(true, "Reine", new Position(0, 3)));
+        white.pieces.Add(new Reine(true, "Reine", new Position(0, 3)));
         black.pieces.Add(new Reine(false, "Reine", new Position(7, 3)));
 
-        black.pieces.Add(new Roi(true, "KRoi", new Position(0, 4)));
+        white.pieces.Add(new Roi(true, "KRoi", new Position(0, 4)));
         black.pieces.Add(new Roi(false, "KRoi", new Position(7, 4)));
 
         this.pieces.AddRange(white.pieces);
