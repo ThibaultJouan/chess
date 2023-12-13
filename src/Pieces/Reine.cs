@@ -5,21 +5,21 @@ class Reine : Piece
     public Reine()
     {   
     }
-    public Reine(bool white, string name, Position position)
+    public Reine(int white, string name, Position position)
     {   
-        this.white = white;
-        this.name = name;
-        this.position = position;
+        White = white;
+        Name = name;
+        Position = position;
     }
 
 
     override
     public Position IsValidMove(Position target)
     {
-        if(((this.position.x == target.y && this.position.y != target.y) 
-         ||(this.position.y == target.y && this.position.x != target.x))
-         ||Math.Abs(this.position.x - target.x) == Math.Abs(this.position.y - target.y))
-            return position;
+        if(((Position.X == target.Y && Position.Y != target.Y) 
+         ||(Position.Y == target.Y && Position.X != target.X))
+         ||Math.Abs(Position.X - target.X) == Math.Abs(Position.Y - target.Y))
+            return Position;
         return new Position(-1, -1);
     }
 }

@@ -5,18 +5,18 @@ class Cavalier : Piece
     public Cavalier()
     {   
     }
-    public Cavalier(bool white, string name, Position position)
+    public Cavalier(int white, string name, Position position)
     {   
-        this.white = white;
-        this.name = name;
-        this.position = position;
+        White = white;
+        Name = name;
+        Position = position;
     }
 
     override
     public Position IsValidMove(Position target)
     {
-        if((Math.Abs(position.x - target.x) == 2 && Math.Abs(position.y - target.y) == 1)
-         ||(Math.Abs(position.x - target.x) == 1 && Math.Abs(position.y - target.y) == 2))
+        if((Math.Abs(Position.X - target.X) == 2 && Math.Abs(Position.Y - target.Y) == 1)
+         ||(Math.Abs(Position.X - target.X) == 1 && Math.Abs(Position.Y - target.Y) == 2))
         {
             return target;
         }

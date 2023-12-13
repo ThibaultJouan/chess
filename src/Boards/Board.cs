@@ -3,21 +3,21 @@ using Pieces;
 
 class Board
 {
-    private int height;
-    private int width;
+    private readonly int _height;
+    private readonly int _width;
     public Piece[,] board;
 
     public Board(int height, int width)
     {
-        this.height = height;
-        this.width = width;
+        this._height = height;
+        this._width = width;
         this.board = new Piece[height, width];
     }
 
     public void InitBoard()
     {
-        for(int i = 0; i < height; i++)
-            for(int j = 0; j < width; j++)
+        for(int i = 0; i < _height; i++)
+            for(int j = 0; j < _width; j++)
             {
                 this.board[i,j] = new Case(new Position(i,j));
             }
@@ -27,19 +27,18 @@ class Board
     {
         var show = new StringBuilder[8];
         var final = new StringBuilder();
-        var part = new StringBuilder("", width*2);
+        var part = new StringBuilder("", _width*2);
 
-        for(int i = 0; i < height; i++)
+        for(int i = 0; i < _height; i++)
         {
-            for(int j = 0; j < width; j++)
+            for(int j = 0; j < _width; j++)
             {
-                part.Append(this.board[i,j].name[0].ToString() + " ");
+                part.Append(this.board[i,j].Name[0].ToString() + " ");
             }
             show[7-i] = new StringBuilder(part.Length);
             show[7-i].Append(part);
-            part = new StringBuilder("", width*2);
+            part = new StringBuilder("", _width*2);
         }
-
         return final.AppendJoin(System.Environment.NewLine, show.ToList()).ToString();
     }
 
@@ -47,8 +46,8 @@ class Board
     {
         foreach(Piece p in pieces)
         {
-            this.board[p.position.x, p.position.y] = p;
-            this.board[p.position.x, p.position.y].name = p.name[0].ToString();
+            this.board[p.Position.X, p.Position.Y] = p;
+            this.board[p.Position.X, p.Position.Y].Name = p.Name[0].ToString();
         }
     }
 }

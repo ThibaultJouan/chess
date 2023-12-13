@@ -6,12 +6,12 @@ class Pion : Piece
     public Pion()
     {   
     }
-    public Pion(bool white, string name, Position position)
+    public Pion(int white, string name, Position position)
     {   
-        this.firstMove = true;
-        this.white = white;
-        this.name = name;
-        this.position = position;
+        firstMove = true;
+        White = white;
+        Name = name;
+        Position = position;
     }
 
 
@@ -19,15 +19,15 @@ class Pion : Piece
     public Position IsValidMove(Position target)
     {
         int step = 1;
-        if((white && position.x == 1) || (!white && position.x == 6))
+        if((White == 1 && Position.X == 1) || (White == 0 && Position.X == 6))
         {
             step = 2;
         }
 
-        if(white && position.x - target.x >= -step && position.y == target.y)
+        if(White == 1 && Position.X - target.X >= -step && Position.Y == target.Y)
             return target;
         
-        if(!white && position.x - target.x <= step && position.y == target.y)
+        if(White == 0 && Position.X - target.X <= step && Position.Y == target.Y)
             return target;
 
         return new Position(-1,-1);

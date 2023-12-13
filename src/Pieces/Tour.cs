@@ -5,18 +5,18 @@ class Tour : Piece
     public Tour()
     {   
     }
-    public Tour(bool white, string name, Position position)
+    public Tour(int white, string name, Position position)
     {   
-        this.white = white;
-        this.name = name;
-        this.position = position;
+        White = white;
+        Name = name;
+        Position = position;
     }
 
     override
     public Position IsValidMove(Position position)
     {
-        if((this.position.x == position.y && this.position.y != position.y) 
-         ||(this.position.y == position.y && this.position.x != position.x))
+        if((Position.X == position.Y && Position.Y != position.Y) 
+         ||(Position.Y == position.Y && Position.X != position.X))
             return position;
         return new Position(-1, -1);
     }

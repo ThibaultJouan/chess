@@ -1,13 +1,13 @@
 
 class Position
 {
-    public int x;
-    public int y;
+    public int X;
+    public int Y;
 
     public Position(int x, int y)
     {
-        this.x = x;
-        this.y = y;
+        X = x;
+        Y = y;
     }
 
     public Position(string input)
@@ -17,79 +17,42 @@ class Position
 
     public void SetPosition(Position position)
     {
-        this.x = position.x;
-        this.y = position.y;
+        X = position.X;
+        Y = position.Y;
     }
 
     public void SetPosition(string input)
     {
-        switch(input[0])
+        Y = input[0] switch
         {
-            case 'A':
-                this.y = 0;
-                break;
-            case 'B':
-                this.y = 1;
-                break;
-            case 'C':
-                this.y = 2;
-                break;
-            case 'D':
-                this.y = 3;
-                break;
-            case 'E':
-                this.y = 4;
-                break;
-            case 'F':
-                this.y = 5;
-                break;
-            case 'G':
-                this.y = 6;
-                break;
-            case 'H':
-                this.y = 7;
-                break;
-            default :
-                this.y = -1;
-                break;
-        }
-
-        switch(input[1])
+            'a' => 0,
+            'b' => 1,
+            'c' => 2,
+            'd' => 3,
+            'e' => 4,
+            'f' => 5,
+            'g' => 6,
+            'h' => 7,
+            _ => -1,
+        };
+        X = input[1] switch
         {
-            case '1':
-                this.x = 0;
-                break;
-            case '2':
-                this.x = 1;
-                break;
-            case '3':
-                this.x = 2;
-                break;
-            case '4':
-                this.x = 3;
-                break;
-            case '5':
-                this.x = 4;
-                break;
-            case '6':
-                this.x = 5;
-                break;
-            case '7':
-                this.x = 6;
-                break;
-            case '8':
-                this.x = 7;
-                break;
-            default :
-                this.x = -1;
-                break;
-        }
+            '1' => 0,
+            '2' => 1,
+            '3' => 2,
+            '4' => 3,
+            '5' => 4,
+            '6' => 5,
+            '7' => 6,
+            '8' => 7,
+            _ => -1,
+        };
     }
 
     public string GetPosition(Position position)
     {
         string outPut = "";
-        switch(position.y)
+        switch(position.Y)
         {
             case 0:
                 outPut += "A";
@@ -120,7 +83,7 @@ class Position
                 break;
         }
 
-        switch(position.x)
+        switch(position.X)
         {
             case 0:
                 outPut += "1";
@@ -150,11 +113,9 @@ class Position
                 outPut = "";
                 break;
         }
-        this.x = position.x;
-        this.y = position.y;
+        X = position.X;
+        Y = position.Y;
 
         return outPut;
     }
-
-
 }

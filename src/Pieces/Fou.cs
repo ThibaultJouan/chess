@@ -5,18 +5,17 @@ class Fou : Piece
     public Fou()
     {   
     }
-    public Fou(bool white, string name, Position position)
+    public Fou(int white, string name, Position position)
     {   
-        this.white = white;
-        this.name = name;
-        this.position = position;
+        White = white;
+        Name = name;
+        Position = position;
     }
-
 
     override
     public Position IsValidMove(Position target)
     {
-        if(Math.Abs(this.position.x - target.x) == Math.Abs(this.position.y - target.y))
+        if(Math.Abs(this.Position.X - target.X) == Math.Abs(this.Position.Y - target.Y))
         {
             return target;
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iOFWJPKm52P841o7e7SZJX2yJ2WBWWe5dqPtQjP/tHnwWxMzbpRof59B6K7J+/KvqXN5heQzWiFCPZTOlI6z+g==",
+  "dgSpecHash": "dAJDKBy+3vYs4OH50cCLI3z6FCF2Hv9w/w+7onDsVHxWMrmyCuENgS/TRrwVZCaVgGqhoQ6/4k2NSTijDuwgAA==",
   "success": true,
-  "projectFilePath": "/home/chauca/Documents/Dev/CSharp/chess/chess.csproj",
+  "projectFilePath": "C:\\Users\\Chauca\\Documents\\GitHub\\chess\\chess.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

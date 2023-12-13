@@ -6,12 +6,11 @@ class Case : Piece
     {   
     }
     public Case(Position position)
-    {   
-        this.name = ((position.x+position.y)%2) != 0 ? " " : "■";
-
-        this.position = position;
+    {
+        White = -1;
+        Name = ((position.X+position.Y)%2) != 0 ? " " : "■";
+        Position = position;
     }
-
 
     override
     public Position IsValidMove(Position position)

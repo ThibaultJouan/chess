@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = chess
-build_property.ProjectDir = /home/chauca/Documents/Dev/CSharp/chess/
+build_property.ProjectDir = C:\Users\Chauca\Documents\GitHub\chess\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

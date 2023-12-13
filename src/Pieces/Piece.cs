@@ -4,20 +4,20 @@ using System.ComponentModel;
 namespace Pieces;
 abstract class Piece
 {
-    public bool white {get; set;}
-    public string name {get; set;}
-    public Position position {get; set;}
+    public int White {get; set;}
+    public string Name {get; set;}
+    public Position Position {get; set;}
 
     public Piece()
     {
-        this.name = String.Empty;
-        this.position = new Position(0,0);
+        Name = String.Empty;
+        Position = new Position(0,0);
     }
-    public Piece(bool white, string name, Position position)
+    public Piece(int white, string name, Position position)
     {   
-        this.white = white;
-        this.name = name;
-        this.position = position;
+        White = white;
+        Name = name;
+        Position = position;
     }
 
     public abstract Position IsValidMove(Position target);

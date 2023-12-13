@@ -3,13 +3,13 @@ using Pieces;
 
 class Player
 {
-    public bool white {get; set;}
-    private int score {get; set;}
+    public int White {get; set;}
+    private int Score { get; set; }
     public List<Piece> pieces;
-    public Player(bool white)
+    public Player(int white)
     {
-        this.white = white;
-        this.score = 0;
+        this.White = white;
+        this.Score = 0;
         this.pieces = new List<Piece>();
     }
 }
