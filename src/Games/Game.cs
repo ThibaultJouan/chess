@@ -1,4 +1,3 @@
-
 using Pieces;
 
 class Game
@@ -16,7 +15,6 @@ class Game
         this._black = new Player(0);
         this._pieces = new List<Piece>();
     }
-
     public void StartGame()
     {
         this._board = new Board(8,8);
@@ -29,12 +27,12 @@ class Game
 
         for(int i = 0; i < 15; i++)
         {
-            PlayTurn(this._white.White);
-            PlayTurn(this._black.White);
+            PlayTurn(this._white.Color);
+            PlayTurn(this._black.Color);
         }
     }
 
-    public void PlayTurn(int white)
+    public void PlayTurn(int color)
     {
         string input = ReadTrueLine();
 
@@ -43,7 +41,7 @@ class Game
         Piece toMove = _board.board[start.X, start.Y];
         Position testValidMove = toMove.IsValidMove(destination);
         
-        while(testValidMove.X == -1 || toMove.White != white || _board.board[start.X, start.Y].White == _board.board[destination.X, destination.Y].White)
+        while(testValidMove.X == -1 || toMove.Color != color || _board.board[start.X, start.Y].Color == _board.board[destination.X, destination.Y].Color)
         {
             input = ReadTrueLine();
             start = new(input[..2]);
@@ -55,6 +53,27 @@ class Game
         toMove.Position.SetPosition(destination);
         _board.board[start.X, start.Y] = new Case(start);
         _board.board[toMove.Position.X, toMove.Position.Y] = toMove;
+
+        Player oponent;
+
+        if(color == 1)
+        {
+            oponent = _black;
+        }
+        else
+        {
+            oponent = _white;
+        }
+
+        foreach(Piece piece in oponent.pieces)
+        {
+            if(piece.Color != color && piece.GetType() == typeof(Roi))
+            {
+                piece.IsThreatened(oponent);
+                break;
+            }
+        }
+
         Console.Write(_board.ShowBoard());      
     }
 
@@ -69,7 +88,10 @@ class Game
     }
     public void InitPieces()
     {
-        for(int i = 0; i < 8; i++)
+        _white.pieces.Add(new Roi(1, "K", new Position(0, 4)));
+        _black.pieces.Add(new Roi(0, "k", new Position(7, 4)));
+
+        for (int i = 0; i < 8; i++)
         {
             _white.pieces.Add(new Pion(1, "P", new Position(1, i)));
             _black.pieces.Add(new Pion(0, "p", new Position(6, i)));
@@ -96,10 +118,7 @@ class Game
         _white.pieces.Add(new Reine(1, "Q", new Position(0, 3)));
         _black.pieces.Add(new Reine(0, "q", new Position(7, 3)));
 
-        _white.pieces.Add(new Roi(1, "K", new Position(0, 4)));
-        _black.pieces.Add(new Roi(0, "k", new Position(7, 4)));
-
-        this._pieces.AddRange(_white.pieces);
-        this._pieces.AddRange(_black.pieces);
+        _pieces.AddRange(_white.pieces);
+        _pieces.AddRange(_black.pieces);
     }
 }

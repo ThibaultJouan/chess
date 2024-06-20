@@ -6,31 +6,39 @@ class Pion : Piece
     public Pion()
     {   
     }
-    public Pion(int white, string name, Position position)
+    public Pion(int color, string name, Position position)
     {   
         firstMove = true;
-        White = white;
+        Color = color;
         Name = name;
         Position = position;
     }
 
+    public override void IsThreatened(Player oponent)
+    {
+        throw new NotImplementedException();
+    }
 
     override
     public Position IsValidMove(Position target)
     {
         int step = 1;
-        if((White == 1 && Position.X == 1) || (White == 0 && Position.X == 6))
+        if((Color == 1 && Position.X == 1) || (Color == 0 && Position.X == 6))
         {
             step = 2;
         }
 
-        if(White == 1 && Position.X - target.X >= -step && Position.Y == target.Y)
+        if(Color == 1 && Position.X - target.X >= -step && Position.Y == target.Y)
             return target;
         
-        if(White == 0 && Position.X - target.X <= step && Position.Y == target.Y)
+        if(Color == 0 && Position.X - target.X <= step && Position.Y == target.Y)
             return target;
 
         return new Position(-1,-1);
     }
 
+    internal override bool CanCheck(Position position)
+    {
+        return false;
+    }
 }

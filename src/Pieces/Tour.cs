@@ -5,11 +5,16 @@ class Tour : Piece
     public Tour()
     {   
     }
-    public Tour(int white, string name, Position position)
+    public Tour(int color, string name, Position position)
     {   
-        White = white;
+        Color = color;
         Name = name;
         Position = position;
+    }
+
+    public override void IsThreatened(Player oponent)
+    {
+        throw new NotImplementedException();
     }
 
     override
@@ -19,5 +24,10 @@ class Tour : Piece
          ||(Position.Y == position.Y && Position.X != position.X))
             return position;
         return new Position(-1, -1);
+    }
+
+    internal override bool CanCheck(Position position)
+    {
+        return false;
     }
 }

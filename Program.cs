@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Chess
+﻿namespace Chess
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Game game = new Game();
+            Game game = new();
             game.StartGame();
         }
     }

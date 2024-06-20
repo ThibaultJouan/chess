@@ -35,6 +35,7 @@ class Position
             'h' => 7,
             _ => -1,
         };
+        
         X = input[1] switch
         {
             '1' => 0,
@@ -52,67 +53,32 @@ class Position
     public string GetPosition(Position position)
     {
         string outPut = "";
-        switch(position.Y)
+        outPut += position.Y switch
         {
-            case 0:
-                outPut += "A";
-                break;
-            case 1:
-                outPut += "B";
-                break;
-            case 2:
-                outPut += "C";
-                break;
-            case 3:
-                outPut += "D";
-                break;
-            case 4:
-                outPut += "E";
-                break;
-            case 5:
-                outPut += "F";
-                break;
-            case 6:
-                outPut += "G";
-                break;
-            case 7:
-                outPut += "H";
-                break;
-            default :
-                outPut = "";
-                break;
-        }
+            0 => "A",
+            1 => "B",
+            2 => "C",
+            3 => "D",
+            4 => "E",
+            5 => "F",
+            6 => "G",
+            7 => "H",
+            _ => "",
+        };
 
-        switch(position.X)
+        outPut += position.X switch
         {
-            case 0:
-                outPut += "1";
-                break;
-            case 1:
-                outPut += "2";
-                break;
-            case 2:
-                outPut += "3";
-                break;
-            case 3:
-                outPut += "4";
-                break;
-            case 4:
-                outPut += "5";
-                break;
-            case 5:
-                outPut += "6";
-                break;
-            case 6:
-                outPut += "7";
-                break;
-            case 7:
-                outPut += "8";
-                break;
-            default :
-                outPut = "";
-                break;
-        }
+            0 => "1",
+            1 => "2",
+            2 => "3",
+            3 => "4",
+            4 => "5",
+            5 => "6",
+            6 => "7",
+            7 => "8",
+            _ => "",
+        };
+
         X = position.X;
         Y = position.Y;
 

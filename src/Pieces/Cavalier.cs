@@ -5,11 +5,16 @@ class Cavalier : Piece
     public Cavalier()
     {   
     }
-    public Cavalier(int white, string name, Position position)
+    public Cavalier(int color, string name, Position position)
     {   
-        White = white;
+        Color = color;
         Name = name;
         Position = position;
+    }
+
+    public override void IsThreatened(Player oponent)
+    {
+        throw new NotImplementedException();
     }
 
     override
@@ -21,5 +26,10 @@ class Cavalier : Piece
             return target;
         }
         return new Position(-1, -1);
+    }
+
+    internal override bool CanCheck(Position targetKing)
+    {
+        return IsValidMove(targetKing).X != -1;
     }
 }

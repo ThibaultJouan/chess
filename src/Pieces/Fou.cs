@@ -5,11 +5,16 @@ class Fou : Piece
     public Fou()
     {   
     }
-    public Fou(int white, string name, Position position)
+    public Fou(int color, string name, Position position)
     {   
-        White = white;
+        Color = color;
         Name = name;
         Position = position;
+    }
+
+    public override void IsThreatened(Player oponent)
+    {
+        throw new NotImplementedException();
     }
 
     override
@@ -21,5 +26,14 @@ class Fou : Piece
         }
 
         return new Position(-1, -1);
+    }
+
+    internal override bool CanCheck(Position targetKing)
+    {
+        //if(IsValidMove(targetKing).X != -1)
+        //{
+
+        //}
+        return false;
     }
 }
